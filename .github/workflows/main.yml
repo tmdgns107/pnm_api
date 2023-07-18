@@ -27,7 +27,7 @@ jobs:
       - name: Build and deploy
         run: |
           npx ncc build src/main.ts
-          zip -j deploy.zip ./dist/main.js
+          zip -j deploy.zip ./dist/index.js
           aws lambda update-function-code --function-name=petNmattAPI --zip-file=fileb://deploy.zip
       - name: Publish Lambda Function Version
         run: |
