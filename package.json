@@ -1,8 +1,8 @@
 {
   "name": "pnm_api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "'Pet and Matt' companion animal hospital and pharmacy information provision service API (Typescript, Nest.js)",
+  "author": "SeungHun(hooon107@naver.com)",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
