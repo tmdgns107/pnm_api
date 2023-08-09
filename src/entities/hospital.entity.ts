@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('hospitals_test')
-export class Wallet {
+export class Hospital {
   @PrimaryGeneratedColumn()
   id: string;
 
