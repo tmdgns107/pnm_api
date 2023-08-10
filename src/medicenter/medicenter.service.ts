@@ -89,8 +89,7 @@ export class MedicenterService {
     review.hospitalId = id;
     review.userId = userId;
     review.comment = comment;
-    review.updateTime = date;
-    review.createTime = date;
+    review.updateTime = review.createTime = date;
     review.imageUrl = receiptImage;
     review.treatmentNm = treatmentNm;
     review.rate = reviewRate;
