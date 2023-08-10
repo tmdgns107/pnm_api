@@ -39,6 +39,9 @@ export class Hospital {
   rate: number;
 
   @Column()
+  totalRate: number;
+
+  @Column()
   reviewCount: number;
 
   @Column()
