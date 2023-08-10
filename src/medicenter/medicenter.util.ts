@@ -102,9 +102,9 @@ export async function addressExtractByGPT(text: string): Promise<any>{
 /** URL을 Buffer 데이터로 변환 **/
 export async function imageUrlToBuffer(imageUrl): Promise<Buffer> {
   try {
-    let bucket = 'petnmat-dev';
-    if(imageUrl.indexOf('petnmat-prod'))
-      bucket = 'petnmat-prod';
+    const prodBucket = 'petnmat-prod';
+    const devBucket = 'petnmat-dev';
+    const bucket = imageUrl.includes(prodBucket) ? prodBucket : devBucket;
 
     const key = imageUrl.split('amazonaws.com/')[1];
     const params = {
@@ -113,10 +113,7 @@ export async function imageUrlToBuffer(imageUrl): Promise<Buffer> {
     }
 
     const imageFile = await s3.getObject(params).promise();
-    if(imageFile.Body)
-      return imageFile.Body as Buffer;
-    else
-      return null;
+    return imageFile.Body ? imageFile.Body as Buffer : null;
   } catch (error) {
     console.log('Error in imageUrlToBuffer:', error);
     return null;

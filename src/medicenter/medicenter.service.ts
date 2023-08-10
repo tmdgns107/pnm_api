@@ -4,7 +4,7 @@ import { Hospital } from "../entities/hospital.entity";
 import { Pharmacy } from "../entities/pharmacy.entity";
 import { Review } from "../entities/review.entity";
 import { InjectRepository } from "@nestjs/typeorm";
-import * as util from "./util";
+import * as util from "./medicenter.util";
 import * as moment from 'moment';
 
 @Injectable()
