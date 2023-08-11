@@ -1,0 +1,21 @@
+service: my-nestjs-service
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: ap-northeast-2
+  role: arn:aws:iam::376739402249:role/lambdaFull_cloudWatchFull
+  versionFunctions: true
+  memorySize: 256
+  timeout: 300
+
+functions:
+  main:
+    handler: dist/lambda.handler
+    name: petNmattAPI
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+plugins:
+  - serverless-offline

@@ -2,10 +2,6 @@ import {ImageAnnotatorClient} from '@google-cloud/vision';
 import AWS from 'aws-sdk';
 import axios from 'axios';
 
-const s3: AWS.S3 = new AWS.S3({
-  region: 'ap-northeast-2' // S3 버킷의 리전에 맞게 수정
-});
-
 /** Google Vision API **/
 export async function callVisionAPI(imageBuffer: Buffer): Promise<any>{
   try{
@@ -111,6 +107,10 @@ export async function imageUrlToBuffer(imageUrl): Promise<Buffer> {
       Bucket: bucket,
       Key: key
     }
+
+    const s3: AWS.S3 = new AWS.S3({
+      region: 'ap-northeast-2' // S3 버킷의 리전에 맞게 수정
+    });
 
     const imageFile = await s3.getObject(params).promise();
     return imageFile.Body ? imageFile.Body as Buffer : null;
